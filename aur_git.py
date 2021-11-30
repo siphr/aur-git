@@ -4,6 +4,11 @@ def git_it(pkg_name):
     import os
     aur_git_url = 'https://aur.archlinux.org';
     os.system('git clone {}/{}.git'.format(aur_git_url, pkg_name))
+    try:
+        os.chdir(pkg_name)
+        os.system('makepkg -si')
+    finally:
+        os.chdir('..')
 
 
 if __name__ == '__main__':

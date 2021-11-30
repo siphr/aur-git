@@ -1,0 +1,9 @@
+pre_install() {
+    echo "Installing aur_git"
+    pip install aur_git -U
+}
+
+post_remove() {
+    echo "Uninstalling python module"
+    pip uninstall -y aur_git
+}
